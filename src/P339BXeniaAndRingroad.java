@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class P339BXeniaAndRingroad {
@@ -8,13 +9,18 @@ public class P339BXeniaAndRingroad {
         int numberOfTasks = in.nextInt();
 
         int previousHouse = 1;
-        int totalTime = 0;
+        BigInteger totalTime = BigInteger.ZERO;
         for (int i = 0; i < numberOfTasks; i++) {
             int nextHouse = in.nextInt();
             if (nextHouse > previousHouse) {
-                totalTime += nextHouse - previousHouse;
+                totalTime = totalTime
+                        .add(BigInteger.valueOf(nextHouse))
+                        .subtract(BigInteger.valueOf(previousHouse));
             } else if (nextHouse < previousHouse) {
-                totalTime += numberOfHouses - previousHouse + nextHouse;
+                totalTime = totalTime
+                        .add(BigInteger.valueOf(numberOfHouses))
+                        .subtract(BigInteger.valueOf(previousHouse))
+                        .add(BigInteger.valueOf(nextHouse));
             }
             previousHouse = nextHouse;
         }
