@@ -1,6 +1,7 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Template {
     public static void main(String[] args) {
@@ -8,10 +9,9 @@ public class Template {
 
         int n = in.nextInt();
 
-        List<Integer> values = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            values.add(in.nextInt());
-        }
+        List<String> values = Arrays.stream(in.nextLine().split(" "))
+                .collect(Collectors.toList());
+
 
         System.out.println();
     }
