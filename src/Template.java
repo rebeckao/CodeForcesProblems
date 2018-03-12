@@ -9,6 +9,7 @@ public class Template {
 
         int n = in.nextInt();
 
+        in.nextLine();
         List<String> values = Arrays.stream(in.nextLine().split(" "))
                 .collect(Collectors.toList());
 
